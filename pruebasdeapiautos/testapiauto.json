@@ -1,0 +1,68 @@
+{
+	"info": {
+		"_postman_id": "6032d3cd-c56e-455f-aab8-da9d7a4d2785",
+		"name": "https://www.postman-echo.com/get",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://www.postman-echo.com/get",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"environment to be production\", function () {\r",
+							"    pm.expect(pm.environment.get(\"env\")).to.equal(\"production\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://www.postman-echo.com/get",
+					"protocol": "https",
+					"host": [
+						"www",
+						"postman-echo",
+						"com"
+					],
+					"path": [
+						"get"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"prueba\", function(){",
+					"pm.response.to.have.status(404);",
+					"});",
+					"",
+					"pm.test(\"prueba2\" , function(){",
+					"pm.response.to.have.status(200);",
+					"});"
+				]
+			}
+		}
+	]
+}
