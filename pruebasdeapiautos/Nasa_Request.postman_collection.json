@@ -1,0 +1,50 @@
+{
+	"info": {
+		"_postman_id": "4f56e6fd-6ca6-44de-af82-490235756abd",
+		"name": "Nasa Request",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Validate Links atribute\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"links\");\r",
+							"});\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"\r",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://covidtracking.com/data",
+					"protocol": "https",
+					"host": [
+						"covidtracking",
+						"com"
+					],
+					"path": [
+						"data"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

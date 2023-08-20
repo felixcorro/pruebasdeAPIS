@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "dbef88d1-5426-4569-be27-8752ccd644bc",
+		"name": "Usuarios",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7773121"
+	},
+	"item": [
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/todos",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listado de usuarios prueba1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://jsonplaceholder.typicode.com/todos",
+					"protocol": "https",
+					"host": [
+						"jsonplaceholder",
+						"typicode",
+						"com"
+					],
+					"path": [
+						"todos"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "listado de usuarios",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Payload must be valid and have a body\", function () { \r",
+							"     pm.response.to.be.ok; // equivalente a decir que valide que sea 200\r",
+							"     pm.response.to.be.withBody; // body tiene que exitir\r",
+							"     pm.response.to.be.json; // además que sea un JSON válido\r",
+							"});\r",
+							"// Pedimos a nuestro response payload que tengo Content-Type en el header\r",
+							"pm.test(\"Content-Type is present\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\");\r",
+							"});\r",
+							"// Y comprobamos que la petición se haya servido en un determinado tiempo\r",
+							"pm.test(\"Response time is less than 200ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(200);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}/todos/1",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"todos",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
